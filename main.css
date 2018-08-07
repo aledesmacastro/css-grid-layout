@@ -1,35 +1,118 @@
 /*Crear un Layout de 3 filas / 2 columnas*/
 body {
-    font-family: Arial;
+    font-family: 'Lato', sans-serif;
     margin: 0;
 }
 
-.container {
+p {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+}
+
+.hero {
+    background-color: #23475b;
+    color: white;
+    padding: 32px 15px;
     display: grid;
-    grid-template-columns: repeat(auto-fill, 250px);
-    grid-gap: 5px;
-    justify-content: center; 
+    grid-template-columns: minmax(auto, 1024px);
+    justify-content: center;
 }
 
-.item {
-    align-items: center;
-    background-color: #f2f2f2;
-    border-radius: 5px;
+.hero-container {
+    display: grid;
+    grid-template-columns: 70px 1fr 320px; 
+    grid-gap: 10px;
+    grid-template-areas: "badge title form" 
+                         ". description form" 
+                         ". countdown form";
+}
+
+.badge {
+    grid-area: badge;
+}
+
+.badge img {
+    max-width: 70px;
+}
+
+.title {
+    grid-area: title;
+    font-size: 36px;
+    font-weight: normal;
+    margin: 0;
     display: flex;
-    justify-items: center;
+    align-items: center;
+}
+
+.description {
+    grid-area: description;
+}
+
+.form {
+    grid-area: form;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .9);
+    padding: 1.5em;
+    border-radius: 10px;
+}
+
+.form input {
+    width: 100%;
     padding: 10px;
+    font-size: 16px;
+    border: 1px solid #dbdbe2;
+    box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
-.item img {
-    max-width: 100%;
+.form p {
+    font-size: 20px;
+    color: #3a3b3f;
+    margin-bottom: 1em;
 }
 
-.level-1 {
-    grid-row-end: span 3;
+.form button {
+    background-color: #98ca3f;
+    color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    font-size: 16px;
+    border-bottom: 5px solid #6d932b;
+    display: inline-block;
+    cursor: pointer;
 }
-.level-2 {
-    grid-row-end: span 2;
+
+.countdown {
+    grid-area: countdown;
 }
-.level-3 {
-    grid-row-end: span 1;
+
+.countdown p {
+    font-size: 20px;
+    text-align: center;
+    font-weight: 300;
+}
+
+.countdown span {
+    font-size: 33px;
+}
+
+.countdown span:after {
+    content: ":";
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.countdown span:last-child:after {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .hero-container {
+        grid-template-columns: 70px 1fr;
+        grid-template-areas: "badge title" 
+                             "description description" 
+                             "form form"
+                             "countdown countdown";
+    }
 }
