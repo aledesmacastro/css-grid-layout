@@ -1,26 +1,56 @@
 /*Crear un Layout de 3 filas / 2 columnas*/
 body {
+    font-family: Arial;
     margin: 0;
-    overflow-y: auto;
 }
 
-.container {
+.post-list {
     display: grid;
-    height: 100vh;
-    grid-gap: 5px;
-    grid-template-columns: repeat(3, 200px);
-    grid-template-rows: repeat(4, 100px);
-
-    /*justify-content: start end center stretch space-around space-between space-evenly;*/
+    grid-template-columns: repeat(3, minmax(100px, 293px));
     justify-content: center;
-
-    /*align-content: start end center stretch space-around space-between space-evenly;*/
-    align-content: center;
+    grid-gap: 28px;
 }
 
-.item {
-    border: 1px solid blue;
+.post {
+    cursor: pointer;
+    position: relative;
+    display: block;
 }
-.item:nth-of-type(5) {
-    background-color: green;
+.post-image {
+    margin: 0;
+}
+.post-image img {
+    width: 100%;
+    vertical-align: top;
+}
+.post-overlay {
+    align-items: center;
+    background-color: rgba(0, 0, 0, .4);
+    bottom: 0;
+    color: white;
+    display: none;
+    justify-content: center;
+    left: 0;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+}
+.post:hover .post-overlay {
+    display: flex;
+}
+
+.post-likes,
+.post-comments {
+    width: 80px;
+    margin: 5px;
+    font-weight: bold;
+    text-align: center;
+    display: inline-block;
+}
+
+@media screen and (max-width: 768px) {
+    .post-list {
+        grid-gap: 3px;
+    }
 }
