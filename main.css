@@ -4,53 +4,32 @@ body {
     margin: 0;
 }
 
-.post-list {
+.container {
     display: grid;
-    grid-template-columns: repeat(3, minmax(100px, 293px));
-    justify-content: center;
-    grid-gap: 28px;
+    grid-template-columns: repeat(auto-fill, 250px);
+    grid-gap: 5px;
+    justify-content: center; 
 }
 
-.post {
-    cursor: pointer;
-    position: relative;
-    display: block;
-}
-.post-image {
-    margin: 0;
-}
-.post-image img {
-    width: 100%;
-    vertical-align: top;
-}
-.post-overlay {
+.item {
     align-items: center;
-    background-color: rgba(0, 0, 0, .4);
-    bottom: 0;
-    color: white;
-    display: none;
-    justify-content: center;
-    left: 0;
-    position: absolute;
-    right: 0;
-    text-align: center;
-    top: 0;
-}
-.post:hover .post-overlay {
+    background-color: #f2f2f2;
+    border-radius: 5px;
     display: flex;
+    justify-items: center;
+    padding: 10px;
 }
 
-.post-likes,
-.post-comments {
-    width: 80px;
-    margin: 5px;
-    font-weight: bold;
-    text-align: center;
-    display: inline-block;
+.item img {
+    max-width: 100%;
 }
 
-@media screen and (max-width: 768px) {
-    .post-list {
-        grid-gap: 3px;
-    }
+.level-1 {
+    grid-row-end: span 3;
+}
+.level-2 {
+    grid-row-end: span 2;
+}
+.level-3 {
+    grid-row-end: span 1;
 }
