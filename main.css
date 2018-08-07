@@ -1,15 +1,16 @@
+/*Crear un Layout de 3 filas / 2 columnas*/
+body {
+	margin: 0;
+}
+
 .container {
 	display: grid;
-	/* grid-template-columns: 25% 200px 25%; */
-	/* grid-template-rows: 300px 150px; */
-	/*grid-template: 300px 150px 100px / 25% 200px 25%;*/
-	/*grid-column-gap: 10px;
-	grid-row-gap: 10px;*/
-	grid-gap: 10px 10px;
-	/*FR Fracciones*/
-	/*grid-template: 300px 100px 100px / 1fr 1fr 1fr;*/
-	/*grid-template: 300px 100px 100px / repeat(4, 1fr);*/
-	grid-template: 300px 100px 100px / repeat(4, minmax(200px, 1fr));
+	grid-gap: 10px;
+	height: 100vh;
+	grid-template: 100px 1fr 100px / 200px 1fr;
+	grid-template-areas: "header header"
+						 "left contenido" 
+						 "footer footer";
 }
 
 .item {
@@ -21,4 +22,17 @@
 	/*display: subgrid;*/
 	display: grid;
 	grid-template: 50px 50px 50px / 25% 50% 25%;
+}
+
+.header {
+	grid-area: header;
+}
+.left {
+	grid-area: left;
+}
+.contenido {
+	grid-area: contenido;
+}
+.footer {
+	grid-area: footer;
 }
